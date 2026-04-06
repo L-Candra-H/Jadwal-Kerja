@@ -1,0 +1,476 @@
+/* ======================================================
+   LAYOUT UTAMA: Content & Sidebar
+====================================================== */
+.content-wrapper {
+  background-color: #f9f9f9;
+  padding-top: 20px;
+  margin-left: 280px; /* harus sama seperti .main-sidebar width */
+  transition: background-color 0.3s ease, padding 0.2s;
+  transition: margin-left 0.3s ease-in-out;
+}
+
+.main-sidebar {
+  background-color: #0000FF;
+  width: 280px;
+  transition: background-color 0.3s ease;
+  transform: translateX(0); /* ⬅️ ini penting */
+}
+
+.main-header {
+  background-color: #ffffff;
+  border-bottom: 1px solid #dee2e6;
+}
+
+/* Saat sidebar disembunyikan */
+body.sidebar-hidden .main-sidebar {
+  transform: translateX(-100%) !important;
+}
+
+body.sidebar-hidden .content-wrapper {
+  margin-left: 0 !important;
+  transition: margin-left 0.3s ease-in-out;
+}
+
+/* ======================================================
+   SIDEBAR: Navigation Links
+====================================================== */
+.nav-sidebar .nav-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 12px;
+  padding-right: 24px;
+  color: #ffffff;
+  white-space: normal;
+  width: 100%;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.nav-sidebar .nav-link p {
+  margin-bottom: 0;
+  flex: 1;
+}
+
+.nav-sidebar .nav-link i.right {
+  flex-shrink: 0;
+  margin-left: 8px;
+}
+
+.nav-sidebar .nav-link.active {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.nav-sidebar .nav-link:hover {
+  background-color: #0033cc;
+  color: #ffffff;
+}
+
+.nav-link.text-danger:hover {
+  background-color: #dc3545 !important;
+  color: #fff !important;
+}
+
+/* ======================================================
+   FORM & TABLE: Style Umum
+====================================================== */
+.table th,
+.table td {
+  vertical-align: middle !important;
+}
+
+.table-sm th,
+.table-sm td {
+  padding: 0.45rem;
+}
+
+.form-row .btn,
+.row .btn {
+  margin-top: 8px;
+}
+
+.btn + .btn {
+  margin-left: 10px;
+}
+
+.table-responsive {
+  overflow-x: auto;
+  white-space: nowrap;
+  position: relative;
+}
+
+/* ======================================================
+   KOMPONEN: Card, Badge, Toast, Modal, Tabs
+====================================================== */
+.card {
+  border-radius: 8px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+}
+
+.card-header {
+  font-weight: 600;
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+}
+
+.card-header h5,
+.card-header h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0;
+}
+
+.badge.bg-success {
+  background-color: #28a745 !important;
+}
+.badge.bg-danger {
+  background-color: #dc3545 !important;
+}
+.badge.bg-warning {
+  background-color: #ffc107 !important;
+  color: #000 !important;
+}
+.badge.bg-info {
+  background-color: #17a2b8 !important;
+}
+
+.toast {
+  min-width: 280px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+.modal-sm .modal-content {
+  font-size: 0.9rem;
+}
+
+.modal-backdrop.show {
+  opacity: 0.3;
+}
+
+.nav-tabs .nav-link.active {
+  background-color: #0d6efd;
+  color: white;
+}
+.nav-tabs .nav-link {
+  color: #0d6efd;
+  font-weight: 500;
+}
+
+/* ======================================================
+   STYLING KHUSUS: Jadwal Shift / Kalender Kerja
+====================================================== */
+.sticky-column {
+  position: sticky;
+  left: 0;
+  background-color: #fff;
+  z-index: 1;
+  min-width: 120px; /* atau sesuai panjang nama */
+}
+
+/* Sticky untuk kolom NIP */
+.sticky-column.nip {
+  position: sticky;
+  left: 0;
+  z-index: 3;
+  background-color: white;
+  min-width: 80px;
+}
+
+/* Sticky untuk kolom Nama */
+.sticky-column.nama {
+  position: sticky;
+  left: 80px; /* Sesuaikan lebar NIP */
+  z-index: 3;
+  background-color: white;
+  min-width: 140px;
+}
+
+/* Sticky keterangan agar tidak ikut geser */
+.keterangan-shift {
+  position: sticky;
+  left: 0;
+  z-index: 3;
+  background-color: white;
+  border-top: 1px solid #ddd;
+  padding: 10px;
+}
+
+th.minggu {
+  background-color: #ffe6e6;
+  color: #cc0000;
+}
+
+td.total-jam {
+  font-weight: bold;
+  background-color: #f0f8ff;
+}
+
+.btn-sm {
+  padding: 3px 8px;
+  font-size: 0.8rem;
+}
+
+.select-disabled,
+select.shift-select:disabled {
+  background-color: #fff3cd !important;
+  color: #856404 !important;
+  border-color: #ffeeba !important;
+  cursor: not-allowed;
+}
+
+/* Shift dropdown */
+td select.shift-select {
+  min-width: 85px;
+  font-size: 0.85rem;
+  padding: 3px 6px;
+  text-align: center;
+}
+
+.table-container {
+  overflow-x: auto;
+  position: relative; /* wajib untuk sticky child bisa bekerja */
+  max-width: 100%;
+}
+
+/* Warna sesuai kode shift */
+.bg-shift-c     { background-color: #FFFF00 !important; } /* Cuti (Kuning) */
+.bg-shift-l     { background-color: #FF0000 !important; color: #fff; } /* Libur (Merah) */
+.bg-shift-skt   { background-color: #964B00 !important; color: #fff; } /* Sakit (Coklat) */
+.bg-shift-tl    { background-color: #00FF00 !important; } /* Tugas Luar (Hijau Terang) */
+.bg-shift-p1    { background-color: #ffffff !important; color: #000; }
+.bg-shift-pmid  { background-color: #ffffff !important; color: #000; }
+.bg-shift-smid  { background-color: #ffffff !important; color: #000; }
+
+/* ======================================================
+   ALERT & FONT
+====================================================== */
+.alert-success {
+  background-color: #d4edda;
+  color: #155724;
+  border: none;
+  border-radius: 6px;
+}
+
+body, .card, .alert, .nav-link {
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* ===============================================
+   ✅ RESPONSIVE SIDEBAR — Smartphone to Desktop
+=============================================== */
+
+.main-sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 280px;
+  max-width: 90vw;
+  height: 100vh;
+  background-color: #007bff;
+  color: #fff;
+  z-index: 1050;
+  transform: translateX(-280px); /* hidden by default */
+  transition: transform 0.3s ease-in-out;
+  padding: 10px;
+  overflow-y: auto;
+}
+.main-sidebar.show {
+  transform: translateX(0); /* visible */
+}
+
+/* BURGER BUTTON */
+.burger-menu {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  font-size: 24px;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  z-index: 1060;
+}
+.burger-menu:hover {
+  color: #ffc107;
+}
+
+/* OVERLAY */
+.overlay-sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.4);
+  backdrop-filter: blur(2px);
+  z-index: 1040;
+  display: none;
+}
+.overlay-sidebar.show {
+  display: block;
+}
+
+/* CONTENT SHIFT */
+body.sidebar-open .content-wrapper {
+  margin-left: 280px;
+  transition: margin-left 0.3s ease-in-out;
+}
+body.sidebar-hidden .main-sidebar {
+  transform: translateX(-280px) !important;
+}
+body.sidebar-hidden .overlay-sidebar {
+  display: none !important;
+}
+body.sidebar-hidden .content-wrapper {
+  margin-left: 0 !important;
+  transition: margin-left 0.3s ease-in-out;
+}
+
+/* CONTENT AREA BASE */
+.content-wrapper,
+.main-header,
+.main-footer {
+  margin-left: 0;
+  padding: 10px;
+}
+
+/* MOBILE RESPONSIVE */
+@media screen and (max-width: 768px) {
+  .main-sidebar {
+    width: 280px;
+    transform: translateX(-280px);
+  }
+  body.sidebar-open .content-wrapper {
+    margin-left: 280px;
+  }
+}
+
+/* LANDSCAPE TABLET */
+@media screen and (orientation: landscape) and (max-width: 1024px) {
+  .main-sidebar {
+    width: 280px;
+    transform: translateX(-280px);
+  }
+  body.sidebar-open .content-wrapper {
+    margin-left: 280px;
+  }
+}
+
+/* DESKTOP */
+@media screen and (min-width: 1025px) {
+  .main-sidebar {
+    transform: none;
+  }
+  .content-wrapper,
+  .main-header,
+  .main-footer {
+    margin-left: 280px;
+  }
+}
+
+/* ======================================================
+   CETAK JADWAL KERJA: Header, Layout, QR & Print Mode
+====================================================== */
+.header-cetak {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.header-cetak h2 {
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+.subjudul-cetak {
+  font-size: 1rem;
+  font-weight: normal;
+  margin-top: -6px;
+  margin-bottom: 10px;
+  color: #555;
+}
+
+/* Tabel Jadwal Kerja Horizontal */
+.tabel-jadwal {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+
+.tabel-jadwal th,
+.tabel-jadwal td {
+  border: 1px solid #666;
+  padding: 3px;
+  text-align: center;
+}
+
+.tabel-jadwal th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+.tabel-jadwal td.bg-shift-c { background-color: #ffffaa !important; }
+.tabel-jadwal td.bg-shift-l { background-color: #f9bdbd !important; }
+.tabel-jadwal td.bg-shift-tl { background-color: #baffc9 !important; }
+
+.tabel-jadwal td.total-jam {
+  background-color: #e8f0fe;
+  font-weight: bold;
+}
+
+/* Tanda Tangan & QR */
+.qr-box {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.qr-box img {
+  border: 1px solid #999;
+  padding: 5px;
+  width: 100px;
+  height: auto;
+}
+
+.qr-box .nama-jabatan {
+  font-size: 0.9rem;
+  margin-top: 6px;
+}
+
+/* Cetak Otomatis */
+@media print {
+  @page {
+    size: A4 landscape;
+    margin: 20mm;
+  }
+
+  .content-wrapper,
+  .main-sidebar,
+  .main-header {
+    display: none !important;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    font-size: 10px;
+    font-family: 'Segoe UI', sans-serif;
+    border: none;
+  }
+
+  .tabel-jadwal th,
+  .tabel-jadwal td {
+    font-size: 9px;
+    padding: 2px;
+    border: 1px solid #333;
+  }
+
+  .qr-box {
+    page-break-inside: avoid;
+  }
+}
+
