@@ -11,7 +11,7 @@ return [
   'host'     => 'localhost',
   'database' => 'jadwal_kerja',
   'user'     => 'root',
-  'password' => ''
+  'password' => 'xxx'
 
 ];
 
