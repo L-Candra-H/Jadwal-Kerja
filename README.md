@@ -1,1 +1,2 @@
-untuk DB bisa kontak admin
+program bantu untuk membuat jadwal kerja
+
